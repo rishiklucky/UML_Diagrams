@@ -1,0 +1,32 @@
+@relation student
+
+@attribute sid numeric
+@attribute name string
+@attribute DM numeric
+@attribute ADS numeric
+@attribute MERN numeric 
+@attribute CN numeric 
+@attribute OS numeric
+@attribute ET numeric 
+@attribute total numeric
+@attribute result {pass,fail}
+@attribute joining_date date yyyy-MM-dd
+
+@data
+1,abhi,60,65,55,50,50,54,334,pass,2024-01-10
+2,balu,70,54,46,48,58,56,332,pass,2024-01-11
+3,chiru,60,55,40,50,40,76,331,pass,2024-01-10
+4,david,60,55,30,50,50,40,290,fail,2024-01-15
+5,erik,60,55,45,60,40,66,326,pass,2024-01-16
+6,frank,60,65,55,50,50,54,334,pass,2024-01-10
+7,gopi,70,54,46,48,58,56,332,pass,2024-01-11
+8,hari,60,55,40,50,40,76,331,pass,2024-01-10
+9,ivan,60,55,30,50,50,40,290,fail,2024-01-15
+10,jack,60,55,45,60,40,66,326,pass,2024-01-16
+11,kittu,60,65,55,50,50,54,334,pass,2024-01-10
+12,lokesh,70,54,46,48,58,56,332,pass,2024-01-11
+13,manoj,60,55,40,50,40,76,331,pass,2024-01-10
+14,naresh,60,55,30,50,50,40,290,fail,2024-01-15
+15,obul,60,55,45,60,40,66,326,pass,2024-01-16
+
+
