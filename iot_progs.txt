@@ -1,0 +1,130 @@
+1. blinking led
+
+void setup() {
+  // put your setup code here, to run once:
+  pinMode(9, OUTPUT);
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+    digitalWrite(9, HIGH);
+    delay(500);
+    digitalWrite(9, LOW);
+    delay(500);
+}
+
+
+2. pir motion sensor
+
+int led = 9; // Led positive terminal to the digital pin 9.              
+  int sensor = 5; // signal pin of sensor to digital pin 5.               
+  int state = LOW;            
+ int val = 0;                 
+
+void  setup() { // Void setup is ran only once after each powerup or reset of the Arduino  board.
+  pinMode(led, OUTPUT); // Led is determined as an output here.    
+  pinMode(sensor, INPUT); // PIR motion sensor is determined is an input here.  
+  Serial.begin(9600);      
+}
+
+void loop(){ // Void loop is ran over and  over and consists of the main program.
+  val = digitalRead(sensor);   
+  if  (val == HIGH) {           
+    digitalWrite(led, HIGH);   
+    delay(500);  // Delay of led is 500             
+    
+    if (state == LOW) {
+      Serial.println("  Motion detected "); 
+      state = HIGH;       
+    }
+  } 
+  else {
+      digitalWrite(led, LOW);
+      delay(500);             
+      
+      if  (state == HIGH){
+        Serial.println("The action/ motion has stopped");
+        state = LOW;       
+    }
+  }
+}
+
+
+3. ultrasonic sensor
+
+int trigPin = 9;
+ int echoPin = 10;
+
+float duration, distance;
+
+void setup() {
+  pinMode(trigPin, OUTPUT);
+  pinMode(echoPin, INPUT);
+  Serial.begin(9600);
+}
+
+void loop() {
+  digitalWrite(trigPin, LOW);
+  delayMicroseconds(2);
+  digitalWrite(trigPin, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trigPin, LOW);
+
+  duration = pulseIn(echoPin, HIGH);
+  distance = (duration*.0343)/2;
+  Serial.print("Distance: ");
+  Serial.println(distance);
+  delay(100);
+}
+
+4. Ldr sensor 
+
+int res = 0; /* declaring the variable that will store the value of photoresistor*/
+int sensor =A0;/* assigning Arduino pin for photoresistor*/
+int led= 5;/* assigning Arduino pin for LED*/
+void setup() {
+Serial.begin(9600); /*setting the baud rate for serial communication*/
+pinMode(5, OUTPUT); /* assigning mode to LED pin */
+}
+
+void loop() {
+    // put your main code here, to run repeatedly:
+res = analogRead(sensor); /* getting the value of photoresistor*/
+
+Serial.println(res); /* displaying the photoresistor value on serial monitor */
+
+    if(res > 100) { /* when the value of sensor is less than 100 */
+Serial.println(" Low intensity ");
+digitalWrite(5,LOW); /* keep the LED off*/
+
+    }
+    else { /* otherwise turn the light on */
+Serial.println("High Intensity ");
+digitalWrite(5,HIGH); /* turn the LED on*/
+
+    }
+delay(1000);
+}
+
+5. servo Arduino
+
+#include <Servo.h>
+
+Servo myservo;
+void setup() {
+  // put your setup code here, to run once:
+  myservo.attach(11);
+
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+  myservo.write(0);
+  delay(5000);
+  myservo.write(90);
+  delay(5000);
+   myservo.write(180);
+  delay(5000);
+}
+
+
